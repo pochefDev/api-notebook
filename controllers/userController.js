@@ -44,6 +44,8 @@ const userLog = async (req, res) => {
   }
 };
 
+
+
 const singup = async (req, res) => {
   const { username, email, password, roles } = req.body;
 
