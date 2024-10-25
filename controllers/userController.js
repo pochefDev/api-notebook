@@ -23,7 +23,7 @@ const userLog = async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({
         status: "error 401",
-        mensaje: "correo o contraseña incorrecta",
+        mensaje: "credenciales incorrectas",
       });
     }
     req.email = userFound.email;
@@ -33,7 +33,7 @@ const userLog = async (req, res) => {
       status: "success 200",
       mensaje: "login correcto",
       token: accesToken,
-      user: userFound,
+      user: {username: userFound.username, email: userFound.email, roles: userFound.roles},
     });
   } catch (error) {
     return res.status(500).json({
